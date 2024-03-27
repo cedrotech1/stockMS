@@ -1,0 +1,31 @@
+input{
+    height: 1cm;
+    width: 10cm;
+    margin: 0.4cm;
+    border-radius: 0.2cm;
+}
+.title{
+    margin-left: 0.5cm;
+}
+ul li{
+    list-style: none;
+    float: left;
+    width: 4cm;
+    margin: 0.3cm;
+}
+table{
+    width: 50%;
+}
+table  button{
+    width: 100%;
+}
+.trh{
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-size: 20px;
+    border: 0px;
+}
+a{
+    text-decoration: none;
+}
