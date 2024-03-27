@@ -1,0 +1,32 @@
+ul li{
+    list-style: none;
+    float: left;
+    width: 5cm;
+}
+input{
+    height: 1cm;
+    width: 10cm;
+    margin: 0.5cm;
+    border-radius: 0.2cm;
+}
+.form1{
+    margin-top: 1cm;
+    background-color: whitesmoke;
+    width: 45%;
+    padding: 0.5cm;
+}
+table{
+    width: 70%;
+
+}
+tr{
+    height: 0.7cm;
+}
+.hr{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+}
