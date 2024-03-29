@@ -1,30 +1,34 @@
-input{
-    height: 1cm;
-    width: 10cm;
-    margin: 0.4cm;
-    border-radius: 0.2cm;
-}
-.title{
-    margin-left: 0.5cm;
-}
 ul li{
     list-style: none;
     float: left;
-    width: 4cm;
-    margin: 0.3cm;
+    width: 5cm;
+}
+input{
+    height: 1cm;
+    width: 10cm;
+    margin: 0.5cm;
+    border-radius: 0.2cm;
+}
+.form1{
+    margin-top: 1cm;
+    background-color: whitesmoke;
+    width: 45%;
+    padding: 0.5cm;
 }
 table{
-    width: 50%;
+    width: 70%;
+
 }
-table  button{
-    width: 100%;
+tr{
+    height: 0.7cm;
 }
-.trh{
+tr:hover{
+    background-color: rgb(198, 198, 198);
+}
+.hr{
     background-color: black;
-    color: aliceblue;
-    text-align: center;
+    color: white;
     font-size: 20px;
-    border: 0px;
 }
 a{
     text-decoration: none;

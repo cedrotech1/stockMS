@@ -23,7 +23,7 @@
     <h3 class='title'>all employees</h3>
 <table>
     <table border='2'>
-        <tr class='trh'>
+        <tr class='hr'>
             <td>names</td> <td>email</td><td colspan='2'>modify</td>
         </tr>
        

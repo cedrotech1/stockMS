@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 10:50 AM
+-- Generation Time: Mar 29, 2024 at 12:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -18,8 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sms`
+-- Database: `minadef`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `pid` int(11) NOT NULL,
+  `pname` varchar(30) NOT NULL,
+  `decription` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`pid`, `pname`, `decription`) VALUES
+(1, 'yams', 'yams from nyagatare'),
+(2, 'patatoes', 'quality number one from huye');
 
 -- --------------------------------------------------------
 
@@ -29,24 +49,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `stock` (
   `id` int(11) NOT NULL,
-  `product` varchar(30) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  `status` varchar(30) NOT NULL
+  `pid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `stock`
 --
 
-INSERT INTO `stock` (`id`, `product`, `quantity`, `price`, `total`, `status`) VALUES
-(2, 'rice', 100, 100, 10000, 'stockin'),
-(4, 'rice', 10, 100, 1000, 'stockout'),
-(5, 'rice', 19, 56, 1064, 'stockout'),
-(6, 'ibirayi', 50, 900, 45000, 'stockin'),
-(7, 'ibijumba', 48, 1000, 48000, 'stockin'),
-(8, 'ibijumba', 20, 466, 9320, 'stockout');
+INSERT INTO `stock` (`id`, `pid`, `quantity`) VALUES
+(1, 1, 70);
 
 -- --------------------------------------------------------
 
@@ -67,12 +79,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `names`, `email`, `role`, `password`) VALUES
-(1, 'admin', 'admin@gmail.com', 'manager', '1234'),
-(2, 'cedrick', 'alain@example.com', 'worker', '1234');
+(1, 'admin', 'admin@gmail.com', 'admin', '1234'),
+(2, 'cedrick', 'cedro@gmail.com', 'worker', '1234'),
+(5, 'alain tresor', 'tresor@example.com', 'worker', '1234');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `stock`
@@ -91,16 +110,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

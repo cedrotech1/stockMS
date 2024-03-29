@@ -1,3 +1,5 @@
 <?php
-$connect=mysqli_connect("localhost","root","","sms");
+
+$connect=mysqli_connect("localhost","root","","minadef");
+
 ?>
