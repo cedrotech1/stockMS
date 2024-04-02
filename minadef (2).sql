@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 12:23 PM
+-- Generation Time: Apr 02, 2024 at 04:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,6 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `historic`
+--
+
+CREATE TABLE `historic` (
+  `id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `year` varchar(30) NOT NULL,
+  `month` varchar(30) NOT NULL,
+  `day` varchar(30) NOT NULL,
+  `status` varchar(30) NOT NULL COMMENT 'may be stockin or stockout'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `historic`
+--
+
+INSERT INTO `historic` (`id`, `pid`, `quantity`, `year`, `month`, `day`, `status`) VALUES
+(1, 1, 100, '2024', '04', '02', 'stockin'),
+(2, 1, 50, '2024', '04', '02', 'stockin'),
+(3, 1, 30, '2024', '04', '02', 'stockout');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -38,8 +63,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`pid`, `pname`, `decription`) VALUES
-(1, 'yams', 'yams from nyagatare'),
-(2, 'patatoes', 'quality number one from huye');
+(1, 'potatos', 'ou..........'),
+(2, 'yams', 'vv');
 
 -- --------------------------------------------------------
 
@@ -58,7 +83,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `pid`, `quantity`) VALUES
-(1, 1, 70);
+(1, 1, 120);
 
 -- --------------------------------------------------------
 
@@ -88,6 +113,12 @@ INSERT INTO `users` (`id`, `names`, `email`, `role`, `password`) VALUES
 --
 
 --
+-- Indexes for table `historic`
+--
+ALTER TABLE `historic`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -108,6 +139,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `historic`
+--
+ALTER TABLE `historic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product`

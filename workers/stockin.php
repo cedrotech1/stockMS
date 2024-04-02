@@ -30,8 +30,7 @@ include('menu.php');
                     while($row=mysqli_fetch_array($result)){
                         ?>
                           <option value="<?php echo $row['pid'] ?>"><?php echo $row['pname'] ?></option>
-
-             <?php
+                      <?php
                 }
                 ?>
     
@@ -48,36 +47,43 @@ if(isset($_POST['save'])){
 
      $pid=$_POST['pid'];
      $quantity=$_POST['quantity'];
-     $date=date('m/d/Y');
+     
+     $y=date('Y');
+     $m=date('m');
+     $d=date('d');
+
    
     $result=mysqli_query($connect,"SELECT * FROM stock where pid='$pid'");
     while($row=mysqli_fetch_array($result)){
         $existing_quantity=$row['quantity'];
     }
     $row= mysqli_num_rows($result);
-    if($row)
+    if($row==1)
     {
-        // update 0798231310
+        // update 
         $updated_quantity=$existing_quantity+$quantity;
         $ins= mysqli_query($connect,"update stock set quantity='$updated_quantity' where pid='$pid'"); 
         if ($ins) {
             echo "<script>alert('stock updated successfully')</script>";
-            // echo "<script>window.location.href='index.php'</script>";
+           
+           mysqli_query($connect,"INSERT INTO `historic`(`id`, `pid`, `quantity`, `year`, `month`, `day`, `status`) VALUES
+             (NULL,$pid,$quantity,'$y','$m','$d','stockin')");
+           
         }
     }else{
         // insert
- $ins= mysqli_query($connect,"INSERT INTO `stock` (`id`, `pid`, `quantity`)
-    VALUES (NULL, '$pid', ' $quantity')"); 
-   if ($ins) {
-        echo "<script>alert('stock added successfully')</script>";
-        // echo "<script>window.location.href='index.php'</script>";
+        $ins= mysqli_query($connect,"INSERT INTO `stock` (`id`, `pid`, `quantity`)
+            VALUES (NULL, '$pid', ' $quantity')"); 
+        if ($ins) {
+                echo "<script>alert('stock added successfully')</script>";
+                mysqli_query($connect,"INSERT INTO `historic`(`id`, `pid`, `quantity`, `year`, `month`, `day`, `status`) VALUES
+                (NULL,$pid,$quantity,'$y','$m','$d','stockin')");
+            
+            }
     }
-    }
 
 
 
-     
-   
 
 
  }

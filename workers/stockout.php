@@ -48,6 +48,10 @@ if(isset($_POST['save'])){
 
      $pid=$_POST['pid'];
      $quantity=$_POST['quantity'];
+     $y=date('Y');
+     $m=date('m');
+     $d=date('d');
+
    
    
     $result=mysqli_query($connect,"SELECT * FROM stock where pid='$pid'");
@@ -62,7 +66,10 @@ if(isset($_POST['save'])){
                 $ins= mysqli_query($connect,"update stock set quantity='$updated_quantity' where pid='$pid'"); 
                 if ($ins) {
                     echo "<script>alert('stock updated successfully')</script>";
-                    // echo "<script>window.location.href='index.php'</script>";
+                   
+                   mysqli_query($connect,"INSERT INTO `historic`(`id`, `pid`, `quantity`, `year`, `month`, `day`, `status`) VALUES
+                    (NULL,$pid,$quantity,'$y','$m','$d','stockout')");
+                  
                 }
         }else{
             echo "<script>alert('that quantity is much more than what we have')</script>";
