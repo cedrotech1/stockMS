@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 04:41 PM
+-- Generation Time: Apr 12, 2024 at 08:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -44,7 +44,13 @@ CREATE TABLE `historic` (
 INSERT INTO `historic` (`id`, `pid`, `quantity`, `year`, `month`, `day`, `status`) VALUES
 (1, 1, 100, '2024', '04', '02', 'stockin'),
 (2, 1, 50, '2024', '04', '02', 'stockin'),
-(3, 1, 30, '2024', '04', '02', 'stockout');
+(3, 1, 30, '2024', '04', '02', 'stockout'),
+(4, 1, 50, '2024', '04', '09', 'stockin'),
+(5, 1, 20, '2024', '04', '09', 'stockout'),
+(6, 2, 30, '2024', '04', '09', 'stockin'),
+(7, 1, 50, '2024', '04', '09', 'stockin'),
+(8, 1, 30, '2024', '04', '09', 'stockout'),
+(9, 2, 12, '2024', '04', '12', 'stockin');
 
 -- --------------------------------------------------------
 
@@ -64,7 +70,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`pid`, `pname`, `decription`) VALUES
 (1, 'potatos', 'ou..........'),
-(2, 'yams', 'vv');
+(2, 'yams', 'vv'),
+(3, 'bananas', 'dfghjkl;');
 
 -- --------------------------------------------------------
 
@@ -83,7 +90,8 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `pid`, `quantity`) VALUES
-(1, 1, 120);
+(1, 1, 170),
+(2, 2, 42);
 
 -- --------------------------------------------------------
 
@@ -144,19 +152,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `historic`
 --
 ALTER TABLE `historic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
